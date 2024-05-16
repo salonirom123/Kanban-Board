@@ -100,25 +100,21 @@ function AddEditTaskModal({
     }
   };
 
+  const onClose = (e) => {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    setIsTaskModalOpen(false);
+  };
   return (
     <div
+      onClick={onClose}
+
       className={
         device === "mobile"
           ? "  py-6 px-6 pb-40  absolute overflow-y-scroll  left-0 flex  right-0 bottom-[-100vh] top-0 dropdown bg-[#00000080]"
           : "  py-6 px-6 pb-40  absolute overflow-y-scroll  left-0 flex  right-0 bottom-0 top-0 dropdown bg-[#00000080]"
       }
-      onClick={(e) => {
-        console.log('Clicked target:', e.target);
-        console.log('Current target:', e.currentTarget);
-      
-        if (e.target !== e.currentTarget) {
-          console.log('Clicked inside modal content. Ignoring click event.');
-
-          return;
-        }
-
-        setIsAddTaskModalOpen(false);
-      }}
     >
       {/* Modal Section */}
 
